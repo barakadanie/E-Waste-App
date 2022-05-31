@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">App E-Waste</string>
+    <string name="navigation_drawer_open">Open Navigation Drawer</string>
+    <string name="navigation_drawer_close">Close Navigation Drawer</string>
+    <string name="electronics_map">Electronics Map</string>
+    <string name="about">E-Waste is a company that provides dedicated citizens with a platform were they can donate their unused electronic components for proper disposal and recyclyng.</string>
+    <string name="name_error">Name Required!</string>
+    <string name="email_error">Email Required!</string>
+    <string name="error_invalid_email">please enter a valid email address</string>
+    <string name="phone_error">Phone Number Required!</string>
+</resources>
