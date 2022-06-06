@@ -107,7 +107,7 @@ public class DonateActivity extends AppCompatActivity implements OnMapReadyCallb
         mLastLocation = location;
         LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());
 
-        //MarkerOptions markerOptions1 = new MarkerOptions().position(latLng).title("You are here");
+        //MarkerOptions markerOp tions1 = new MarkerOptions().position(latLng).title("You are here");
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         //mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
         //mMap.addMarker(markerOptions1).showInfoWindow();
