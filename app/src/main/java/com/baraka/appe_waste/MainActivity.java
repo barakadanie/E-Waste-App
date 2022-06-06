@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -28,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private androidx.appcompat.widget.Toolbar toolBar;
     private NavigationView navView;
     private CircleImageView nav_profile_image;
+    ViewPager viewPager;
+    AdapterPage adapter;
+    TabLayout tabLayout;
     private TextView fullname,navemail,type;
     private DatabaseReference userRef;
     @Override
@@ -35,6 +40,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         drawerLayout=findViewById(R.id.drawerlayout);
+        viewPager=findViewById(R.id.viewpager);
+        tabLayout=findViewById(R.id.tablayout);
+        adapter=new AdapterPage(getSupportFragmentManager());
+        adapter.add();
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
         toolBar=findViewById(R.id.toolbar);
         setSupportActionBar(toolBar);
         getSupportActionBar().setTitle("E-Waste Collection App");
