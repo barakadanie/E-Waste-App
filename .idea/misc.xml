@@ -5,19 +5,27 @@
       <map>
         <entry key="..\:/AppEWaste/app/src/main/res/drawable-v24/about.xml" value="0.1" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_about.xml" value="0.17074275362318841" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_appliance.xml" value="0.1911231884057971" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_computers.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_contact.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_donate.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_emaps.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_history.xml" value="0.17074275362318841" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_laptop.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_login.xml" value="0.1" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_main.xml" value="0.17074275362318841" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_mobile.xml" value="0.1911231884057971" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_printer.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_profile.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_receive.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_register.xml" value="0.1" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_splash_screen.xml" value="0.17074275362318841" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_tvs.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_user_data.xml" value="0.10182370820668693" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_wearables_main.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/fragment_my.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/header.xml" value="0.17074275362318841" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/list_items.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/singlerow.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/menu/main_menu.xml" value="0.209375" />
       </map>

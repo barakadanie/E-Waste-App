@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.viewpager.widget.ViewPager;
@@ -11,6 +12,7 @@ import androidx.viewpager.widget.ViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -29,9 +31,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     private androidx.appcompat.widget.Toolbar toolBar;
     private NavigationView navView;
+    CardView mobile,wearable,tv,laptop,appliance,printer;
     private CircleImageView nav_profile_image;
     ViewPager viewPager;
-    AdapterPage adapter;
     TabLayout tabLayout;
     private TextView fullname,navemail,type;
     private DatabaseReference userRef;
@@ -40,12 +42,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         drawerLayout=findViewById(R.id.drawerlayout);
-        viewPager=findViewById(R.id.viewpager);
-        tabLayout=findViewById(R.id.tablayout);
-        adapter=new AdapterPage(getSupportFragmentManager());
-        adapter.add();
-        viewPager.setAdapter(adapter);
-        tabLayout.setupWithViewPager(viewPager);
+        mobile=findViewById(R.id.mobile);
+        wearable=findViewById(R.id.wearables);
+        tv=findViewById(R.id.tvs);
+        laptop=findViewById(R.id.laptop);
+        appliance=findViewById(R.id.appliances);
+        printer=findViewById(R.id.printers);
+        //tabLayout.setupWithViewPager(viewPager);
         toolBar=findViewById(R.id.toolbar);
         setSupportActionBar(toolBar);
         getSupportActionBar().setTitle("E-Waste Collection App");
@@ -80,7 +83,55 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
-
+    mobile.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent intent=new Intent(MainActivity.this,MobileActivity.class);
+            startActivity(intent);
+        }
+    });
+        mobile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,MobileActivity.class);
+                startActivity(intent);
+            }
+        });
+        wearable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,WearablesMainActivity.class);
+                startActivity(intent);
+            }
+        });
+        tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,TvsActivity.class);
+                startActivity(intent);
+            }
+        });
+        printer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,PrinterActivity.class);
+                startActivity(intent);
+            }
+        });
+        appliance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,ApplianceActivity.class);
+                startActivity(intent);
+            }
+        });
+        laptop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(MainActivity.this,LaptopActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
@@ -121,6 +172,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 intent8.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent8);
                 break;
+
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
