@@ -267,7 +267,7 @@
         app:headerLayout="@layout/header"
         app:menu="@menu/main_menu"
         android:layout_gravity="start"
-        android:background="@color/purple_700"
+        android:background="@drawable/back"
         app:itemIconTint="@drawable/navigation_selector"
         app:itemTextColor="@drawable/navigationview_itemselected"
         android:id="@+id/navigationview"

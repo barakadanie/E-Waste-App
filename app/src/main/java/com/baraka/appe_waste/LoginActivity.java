@@ -21,8 +21,9 @@ import com.google.firebase.auth.FirebaseAuth;
 public class LoginActivity extends AppCompatActivity {
     EditText mEmail,mPassword;
     Button mLoginBtn;
-    TextView mRegisterBtn;
+    TextView mRegisterBtn,forgot;
     FirebaseAuth fAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
         mPassword = findViewById(R.id.password);
         mRegisterBtn = findViewById(R.id.register);
         mLoginBtn = findViewById(R.id.login);
-
+        forgot=findViewById(R.id.forgotPass);
         fAuth=FirebaseAuth.getInstance();
 
         if(fAuth.getCurrentUser() !=null){
@@ -88,6 +89,14 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 // redirect to RegisterActivity
                 Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
+                startActivity(intent);
+            }
+        });
+        forgot.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // redirect to RegisterActivity
+                Intent intent = new Intent(getApplicationContext(), ForgotPasswordActivity.class);
                 startActivity(intent);
             }
         });

@@ -25,7 +25,7 @@
             android:layout_height="100dp"
             android:background="@drawable/round_background"
             android:padding="15dp"
-            android:src="@drawable/add"
+            android:src="@drawable/mainlogo"
             tools:ignore="ContentDescription" />
 
 
@@ -83,14 +83,26 @@
                 android:singleLine="true" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
+        <TextView
+            android:id="@+id/forgotPass"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="20dp"
+            android:textAlignment="textEnd"
+            android:textSize="20sp"
+            android:textStyle="italic"
+            android:textColor="#0249FF"
+            android:text="@string/forgot_password"
+            android:layout_marginStart="0dp"
+            android:layout_marginEnd="15dp"
+            />
         <Button
             android:id="@+id/login"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_margin="20dp"
             android:background="@drawable/button_rounded"
-            android:text="Login"
+            android:text="@string/login"
             android:textColor="@android:color/white"
             android:textSize="16sp" />
 
@@ -100,7 +112,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
             android:gravity="center"
-            android:text="Don't Have an account? Click to Register"
+            android:text="@string/reg"
             android:textColor="@color/white"
             android:textSize="17sp" />
 

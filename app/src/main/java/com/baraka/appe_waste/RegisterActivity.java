@@ -39,7 +39,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 
 public class RegisterActivity extends AppCompatActivity {
     public static final String TAG = "TAG";
-    EditText mFullName,mEmail,mPassword,mPhone;
+    EditText mFullName,mEmail,mPassword,confirm,mPhone;
     Button mRegisterBtn;
     TextView mLoginBtn;
     FirebaseAuth fAuth;
@@ -60,7 +60,7 @@ public class RegisterActivity extends AppCompatActivity {
         mPhone = findViewById(R.id.phone);
         mRegisterBtn=findViewById(R.id.register);
         mLoginBtn = findViewById(R.id.login);
-
+        confirm=findViewById(R.id.confirmPassword);
         fAuth=FirebaseAuth.getInstance();
         fStore=FirebaseFirestore.getInstance();
 
@@ -86,6 +86,7 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
                 String password = mPassword.getText().toString().trim();
+                String password2 = confirm.getText().toString().trim();
                 String name = mFullName.getText().toString().trim();
                 String phone = mPhone.getText().toString().trim();
 
@@ -98,7 +99,9 @@ public class RegisterActivity extends AppCompatActivity {
                     mPassword.setError("Password is Required.");
                     return;
                 }
-
+                if (password!=(password2)) {
+                    confirm.setError("Passwords do not match!!");
+                }
                 if (password.length() < 6) {
                     mPassword.setError("Password Must be >=6 Characters");
                     return;
@@ -176,7 +179,7 @@ public class RegisterActivity extends AppCompatActivity {
                                         }
                                     }
                                 });
-                                //startActivity(new Intent(getApplicationContext(),MainActivity.class));
+
                                 Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                                 startActivity(intent);

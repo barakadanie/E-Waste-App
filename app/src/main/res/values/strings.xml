@@ -8,4 +8,9 @@
     <string name="email_error">Email Required!</string>
     <string name="error_invalid_email">please enter a valid email address</string>
     <string name="phone_error">Phone Number Required!</string>
+    <string name="reset">A password reset link will be sent to your email address</string>
+    <string name="forgot_password">Forgot Password</string>
+    <string name="login">Login</string>
+    <string name="reg">Don\'t Have an account? Click to Register</string>
+    <string name="enter_email">Enter email</string>
 </resources>
