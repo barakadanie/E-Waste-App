@@ -24,6 +24,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -85,15 +86,23 @@ public class EMapsActivity extends AppCompatActivity implements OnMapReadyCallba
     public void onLocationChanged(@NonNull Location location) {
         mLastLocation = location;
         showLocation();
-        LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());
+        //LatLng latLng = new LatLng(location.getLatitude(),location.getLongitude());
 
-        MarkerOptions markerOptions1 = new MarkerOptions().position(latLng).title("You are here").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        //mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
-        //mMap.addMarker(markerOptions1).showInfoWindow();
+//        MarkerOptions markerOptions1 = new MarkerOptions().position(latLng).title("You are here").icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+//        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+//        mMap.addMarker(markerOptions1).showInfoWindow();
+//
+//        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
+//        mMap.addMarker(markerOptions1).showInfoWindow();
 
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
-        mMap.addMarker(markerOptions1).showInfoWindow();
+        LatLngBounds australiaBounds = new LatLngBounds(
+                new LatLng(-2, 33.8), // SW bounds
+                new LatLng(2, 41.9)  // NE bounds
+        );
+        mMap.moveCamera(CameraUpdateFactory.newLatLngBounds(australiaBounds, 0));
+
+
     }
 
     public void showLocation() {

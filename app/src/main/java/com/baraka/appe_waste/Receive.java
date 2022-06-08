@@ -47,11 +47,12 @@ public class Receive extends AppCompatActivity implements OnMapReadyCallback, Go
     LocationRequest mLocationRequest;
     private int REQUEST_CODE = 11;
     SupportMapFragment mapFragment;
-    EditText mFullName,mDescription;
+    EditText mFullName,mDescription,lat,lon;
     Button mSubmitBtn;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
     String userID;
+    Location latit,longit;
     public static final String TAG = "TAG";
 
     @Override
@@ -62,7 +63,8 @@ public class Receive extends AppCompatActivity implements OnMapReadyCallback, Go
         mFullName = findViewById(R.id.receivername);
         mDescription = findViewById(R.id.description);
         mSubmitBtn=findViewById(R.id.submit);
-
+        lat=findViewById(R.id.latitude);
+        lon=findViewById(R.id.longitude);
         fAuth=FirebaseAuth.getInstance();
         fStore= FirebaseFirestore.getInstance();
 
@@ -131,8 +133,11 @@ public class Receive extends AppCompatActivity implements OnMapReadyCallback, Go
                 userID = fAuth.getCurrentUser().getUid();
                 //DocumentReference documentReference = fStore.collection("receiver").document(userID);
                 CollectionReference collectionReference = fStore.collection("user data");
-
-                GeoPoint geoPoint = new GeoPoint(location.getLatitude(),location.getLongitude());
+                String lati=lat.getText().toString();
+                double la=Double.parseDouble(lati);
+                String lons=lon.getText().toString();
+                double lot=Double.parseDouble(lons);
+                GeoPoint geoPoint = new GeoPoint(location.setLatitude(la),location.getLongitude());,location.setLongitude(lot));
                 Map<String,Object> user = new HashMap<>();
                 user.put("timestamp", FieldValue.serverTimestamp());
                 user.put("name",fullname);

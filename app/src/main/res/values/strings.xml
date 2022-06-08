@@ -13,4 +13,5 @@
     <string name="login">Login</string>
     <string name="reg">Don\'t Have an account? Click to Register</string>
     <string name="enter_email">Enter email</string>
+    <string name="location_name">Location Name</string>
 </resources>

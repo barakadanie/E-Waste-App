@@ -99,7 +99,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:hint="Item description"
+                            android:hint="@string/location_name"
                             android:textSize="20sp"
                             android:fontFamily="@font/opensans"
                             android:inputType="textMultiLine"
@@ -111,7 +111,66 @@
                             tools:ignore="UnusedAttribute" />
 
                     </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/latitudeError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        app:hintTextColor="@color/white"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/opensans"
+                        app:boxStrokeColor="@color/white">
 
+                        <EditText
+                            android:id="@+id/latitude"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:hint="Latitude"
+                            android:textSize="20sp"
+                            android:fontFamily="@font/opensans"
+                            android:inputType="textMultiLine"
+                            android:maxLines="10"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:backgroundTint="@android:color/transparent"
+                            android:importantForAutofill="no"
+                            tools:ignore="UnusedAttribute" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/longitudeError"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:passwordToggleEnabled="true"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white"
+                        app:hintTextColor="@color/white"
+                        android:textSize="20sp"
+                        android:fontFamily="@font/opensans"
+                        app:boxStrokeColor="@color/white">
+
+                        <EditText
+                            android:id="@+id/longitude"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:hint="@string/location_name"
+                            android:textSize="20sp"
+                            android:fontFamily="@font/opensans"
+                            android:inputType="textMultiLine"
+                            android:maxLines="10"
+                            android:textColor="@color/white"
+                            android:textColorHint="@color/white"
+                            android:backgroundTint="@android:color/transparent"
+                            android:importantForAutofill="no"
+                            tools:ignore="UnusedAttribute" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
                     <fragment
                         android:id="@+id/google_map"
                         xmlns:map="http://schemas.android.com/apk/res-auto"
