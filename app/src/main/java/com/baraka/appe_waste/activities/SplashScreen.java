@@ -1,4 +1,4 @@
-package com.baraka.appe_waste;
+package com.baraka.appe_waste.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,6 +10,8 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.baraka.appe_waste.R;
 
 public class SplashScreen extends AppCompatActivity {
     private ImageView logo;

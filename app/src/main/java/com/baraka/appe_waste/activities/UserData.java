@@ -1,4 +1,4 @@
-package com.baraka.appe_waste;
+package com.baraka.appe_waste.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import com.baraka.appe_waste.R;
+import com.baraka.appe_waste.helpers.model;
+import com.baraka.appe_waste.helpers.myadapter;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;

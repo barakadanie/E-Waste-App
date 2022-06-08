@@ -5,10 +5,6 @@
         android:icon="@drawable/home"
         android:title="Home"/>
     <item
-        android:id="@+id/sendemail"
-        android:icon="@drawable/check"
-        android:title="Donors Email"/>
-    <item
         android:id="@+id/donate"
         android:icon="@drawable/donate"
         android:title="Donate"/>
@@ -35,8 +31,12 @@
                 android:title="Profile"/>
             <item
                 android:id="@+id/notificaton"
-                android:icon="@drawable/notify"
+                android:icon="@drawable/about"
                 android:title="Notifications"/>
+            <item
+                android:id="@+id/help"
+                android:icon="@drawable/ic_baseline_help_outline_24"
+                android:title="Help"/>
             <item
                 android:id="@+id/logout"
                 android:icon="@drawable/logout"

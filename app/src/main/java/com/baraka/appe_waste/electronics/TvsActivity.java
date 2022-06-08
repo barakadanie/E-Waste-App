@@ -1,4 +1,4 @@
-package com.baraka.appe_waste;
+package com.baraka.appe_waste.electronics;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,15 +7,17 @@ import androidx.appcompat.widget.Toolbar;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-public class PrinterActivity extends AppCompatActivity {
+import com.baraka.appe_waste.R;
+
+public class TvsActivity extends AppCompatActivity {
     private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_printer);
+        setContentView(R.layout.activity_tvs);
         toolbar=findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Printers & Scanners");
+        getSupportActionBar().setTitle("Tvs,Set Top boxes & Monitors");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }

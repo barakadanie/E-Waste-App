@@ -1,9 +1,8 @@
-package com.baraka.appe_waste;
+package com.baraka.appe_waste.activities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -15,6 +14,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import com.baraka.appe_waste.R;
+import com.baraka.appe_waste.electronics.ApplianceActivity;
+import com.baraka.appe_waste.electronics.LaptopActivity;
+import com.baraka.appe_waste.electronics.MobileActivity;
+import com.baraka.appe_waste.electronics.PrinterActivity;
+import com.baraka.appe_waste.electronics.TvsActivity;
+import com.baraka.appe_waste.electronics.WearablesMainActivity;
 import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
@@ -86,7 +92,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     mobile.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent=new Intent(MainActivity.this,MobileActivity.class);
+            Intent intent=new Intent(MainActivity.this, MobileActivity.class);
             startActivity(intent);
         }
     });
@@ -100,35 +106,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         wearable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,WearablesMainActivity.class);
+                Intent intent=new Intent(MainActivity.this, WearablesMainActivity.class);
                 startActivity(intent);
             }
         });
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,TvsActivity.class);
+                Intent intent=new Intent(MainActivity.this, TvsActivity.class);
                 startActivity(intent);
             }
         });
         printer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,PrinterActivity.class);
+                Intent intent=new Intent(MainActivity.this, PrinterActivity.class);
                 startActivity(intent);
             }
         });
         appliance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,ApplianceActivity.class);
+                Intent intent=new Intent(MainActivity.this, ApplianceActivity.class);
                 startActivity(intent);
             }
         });
         laptop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,LaptopActivity.class);
+                Intent intent=new Intent(MainActivity.this, LaptopActivity.class);
                 startActivity(intent);
             }
         });
@@ -162,15 +168,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent6=new Intent(MainActivity.this,ContactActivity.class);
                 startActivity(intent6);
                 break;
-            case R.id.sendemail:
-                Intent intent7=new Intent(MainActivity.this,Receive.class);
-                startActivity(intent7);
-                break;
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
                 Intent intent8 = new Intent(MainActivity.this, LoginActivity.class);
                 intent8.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent8);
+                break;
+            case R.id.share:
+                Intent shareIntent =   new Intent(android.content.Intent.ACTION_SEND);
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(Intent.EXTRA_SUBJECT,"Insert Subject here");
+                String app_url = " https://play.google.com/store/apps/details?id=ewaste";
+                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT,app_url);
+                startActivity(Intent.createChooser(shareIntent, "Share via"));
                 break;
 
         }

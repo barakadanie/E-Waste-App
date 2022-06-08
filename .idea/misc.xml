@@ -4,14 +4,25 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/AppEWaste/app/src/main/res/drawable-v24/about.xml" value="0.1" />
+        <entry key="..\:/AppEWaste/app/src/main/res/drawable-v24/check.xml" value="0.1" />
+        <entry key="..\:/AppEWaste/app/src/main/res/drawable-v24/collect.xml" value="0.1" />
+        <entry key="..\:/AppEWaste/app/src/main/res/drawable-v24/contact.xml" value="0.1" />
+        <entry key="..\:/AppEWaste/app/src/main/res/drawable-v24/donate.xml" value="0.1" />
+        <entry key="..\:/AppEWaste/app/src/main/res/drawable-v24/history.xml" value="0.1" />
+        <entry key="..\:/AppEWaste/app/src/main/res/drawable-v24/home.xml" value="0.1" />
+        <entry key="..\:/AppEWaste/app/src/main/res/drawable-v24/notify.xml" value="0.1" />
+        <entry key="..\:/AppEWaste/app/src/main/res/drawable-v24/profile.xml" value="0.1" />
+        <entry key="..\:/AppEWaste/app/src/main/res/drawable-v24/share.xml" value="0.1" />
         <entry key="..\:/AppEWaste/app/src/main/res/drawable/edit_text_style.xml" value="0.1" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_about.xml" value="0.17074275362318841" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_admin.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_appliance.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_computers.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_contact.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_donate.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_emaps.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_forgot_password.xml" value="0.1911231884057971" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_help.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_history.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_laptop.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_login.xml" value="0.1" />
@@ -27,6 +38,7 @@
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_wearables_main.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/fragment_my.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/header.xml" value="0.17074275362318841" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/list_item.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/list_items.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/singlerow.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/menu/main_menu.xml" value="0.209375" />

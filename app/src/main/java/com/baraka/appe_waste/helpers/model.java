@@ -1,4 +1,4 @@
-package com.baraka.appe_waste;
+package com.baraka.appe_waste.helpers;
 public class model {
     String name,type,description,userid;
 

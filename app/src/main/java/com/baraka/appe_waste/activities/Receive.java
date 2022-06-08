@@ -1,4 +1,4 @@
-package com.baraka.appe_waste;
+package com.baraka.appe_waste.activities;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.baraka.appe_waste.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
@@ -34,7 +35,6 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FieldValue;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
-import com.google.firebase.firestore.ServerTimestamp;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -131,13 +131,14 @@ public class Receive extends AppCompatActivity implements OnMapReadyCallback, Go
 
 
                 userID = fAuth.getCurrentUser().getUid();
-                //DocumentReference documentReference = fStore.collection("receiver").document(userID);
+                //DocumentReference documentReference = fStore.collec
+                // tion("receiver").document(userID);
                 CollectionReference collectionReference = fStore.collection("user data");
                 String lati=lat.getText().toString();
                 double la=Double.parseDouble(lati);
                 String lons=lon.getText().toString();
                 double lot=Double.parseDouble(lons);
-                GeoPoint geoPoint = new GeoPoint(location.setLatitude(la),location.getLongitude());,location.setLongitude(lot));
+                GeoPoint geoPoint = new GeoPoint(la,lot);
                 Map<String,Object> user = new HashMap<>();
                 user.put("timestamp", FieldValue.serverTimestamp());
                 user.put("name",fullname);
