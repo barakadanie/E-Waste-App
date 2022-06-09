@@ -51,7 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
                     email.setText(snapshot.child("email").getValue().toString());
                     phone.setText(snapshot.child("phone").getValue().toString());
                     //String imageUrl=snapshot.child("").getValue().toString();
-                    Glide.with(getApplicationContext()).load(snapshot.child("profilepicUrl").getValue().toString()).into(profileImage);
+                    //Glide.with(getApplicationContext()).load(snapshot.child("profilepicUrl").getValue().toString()).into(profileImage);
                 }
             }
 

@@ -79,8 +79,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     fullname.setText(name);
                     String email=snapshot.child("email").getValue().toString();
                     navemail.setText(email);
-                    String imageUrl=snapshot.child("profilepicUrl").getValue().toString();
-                    Glide.with(getApplicationContext()).load(imageUrl).into(nav_profile_image);
+                    //String imageUrl=snapshot.child("profilepicUrl").getValue().toString();
+                    //Glide.with(getApplicationContext()).load(imageUrl).into(nav_profile_image);
                 }
             }
 

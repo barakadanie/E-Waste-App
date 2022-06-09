@@ -23,12 +23,16 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -43,6 +47,8 @@ public class RegisterActivity extends AppCompatActivity {
     Button mRegisterBtn;
     TextView mLoginBtn;
     FirebaseAuth fAuth;
+    FirebaseDatabase firebaseDatabase;
+    FirebaseStorage firebaseStorage;
     FirebaseFirestore fStore;
     DatabaseReference ref;
     String userID;
@@ -62,6 +68,8 @@ public class RegisterActivity extends AppCompatActivity {
         mLoginBtn = findViewById(R.id.login);
         confirm=findViewById(R.id.confirmPassword);
         fAuth=FirebaseAuth.getInstance();
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseStorage = FirebaseStorage.getInstance();
         fStore=FirebaseFirestore.getInstance();
 
         if(fAuth.getCurrentUser() !=null){
@@ -80,13 +88,14 @@ public class RegisterActivity extends AppCompatActivity {
 
             }
         });
+
         mRegisterBtn.setOnClickListener(new View.OnClickListener ()
         {
             @Override
             public void onClick(View v) {
                 String email = mEmail.getText().toString().trim();
-                String password = mPassword.getText().toString().trim();
-                String password2 = confirm.getText().toString().trim();
+                String password = mPassword.getText().toString();
+                String password2 = confirm.getText().toString();
                 String name = mFullName.getText().toString().trim();
                 String phone = mPhone.getText().toString().trim();
 
@@ -99,101 +108,98 @@ public class RegisterActivity extends AppCompatActivity {
                     mPassword.setError("Password is Required.");
                     return;
                 }
-                if (password!=(password2)) {
-                    confirm.setError("Passwords do not match!!");
-                }
+
                 if (password.length() < 6) {
                     mPassword.setError("Password Must be >=6 Characters");
                     return;
                 }
-                else{
-                fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            //Toast.makeText(RegisterActivity.this, "User Created.", Toast.LENGTH_SHORT).show();
-                            userID = fAuth.getCurrentUser().getUid();
-                            DocumentReference documentReference = fStore.collection("users").document(userID);
-                            Map<String, Object> user = new HashMap<>();
-                            user.put("name", name);
-                            user.put("email", email);
-                            user.put("phone", phone);
-
-                            documentReference.set(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void aVoid) {
-                                    Log.d(TAG, "onSuccess: user Profile is created for " + userID);
-                                    Toast.makeText(RegisterActivity.this, "Registered Successfully.", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                            if (resultUri!=null)
-                            {
-                                final StorageReference filePath= FirebaseStorage.getInstance().getReference().child("profile images").child(userID);
-                                Bitmap bitmap=null;
-                                try {
-                                    bitmap= MediaStore.Images.Media.getBitmap(getApplication().getContentResolver(),resultUri);
-                                }
-                                catch (IOException e)
-                                {
-                                    e.printStackTrace();
-                                }
-                                ByteArrayOutputStream byteArrayOutputStream=new ByteArrayOutputStream();
-                                bitmap.compress(Bitmap.CompressFormat.JPEG,20,byteArrayOutputStream);
-                                byte[] data=byteArrayOutputStream.toByteArray();
-                                UploadTask uploadTask=filePath.putBytes(data);
-                                uploadTask.addOnFailureListener(new OnFailureListener() {
+//                if (password != password2) {
+//                    confirm.setError("Passwords do not match!!");
+//                }
+                else {
+                    fAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if (!task.isSuccessful()) {
+                                String error = task.getException().toString();
+                                Toast.makeText(RegisterActivity.this, error, Toast.LENGTH_SHORT).show();
+                            } else {
+                                String currentUserId = fAuth.getCurrentUser().getUid();
+                                ref = FirebaseDatabase.getInstance().getReference().child("users").child(currentUserId);
+                                HashMap<String, Object> user = new HashMap<>();
+                                user.put("name", name);
+                                user.put("email", email);
+                                user.put("phone", phone);
+                                ref.updateChildren(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
-                                    public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(RegisterActivity.this, "image uplad failed", Toast.LENGTH_SHORT).show();
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if (task.isSuccessful()) {
+                                            Toast.makeText(RegisterActivity.this, "", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            Toast.makeText(RegisterActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
+                                        }
+                                        finish();
                                     }
                                 });
-                                uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                    @Override
-                                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                        if (taskSnapshot.getMetadata()!=null&& taskSnapshot.getMetadata().getReference()!=null)
-                                        {
-                                            Task<Uri>  result=taskSnapshot.getStorage().getDownloadUrl();
-                                            result.addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                                @Override
-                                                public void onSuccess(Uri uri) {
-                                                    String imageUrl=uri.toString();
-                                                    Map newImageMap=new HashMap();
-                                                    newImageMap.put("profilepicUrl",imageUrl);
-
-                                                    ref.updateChildren(newImageMap).addOnSuccessListener(new OnSuccessListener() {
+                                if (resultUri != null) {
+                                    final StorageReference filePath = FirebaseStorage.getInstance().getReference().child("profile images").child(currentUserId);
+                                    Bitmap bitmap = null;
+                                    try {
+                                        bitmap = MediaStore.Images.Media.getBitmap(getApplication().getContentResolver(), resultUri);
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                                    bitmap.compress(Bitmap.CompressFormat.JPEG, 20, byteArrayOutputStream);
+                                    byte[] data = byteArrayOutputStream.toByteArray();
+                                    UploadTask uploadTask = filePath.putBytes(data);
+                                    uploadTask.addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            Toast.makeText(RegisterActivity.this, "image uplad failed", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+                                    uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                        @Override
+                                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                            if (taskSnapshot.getMetadata() != null && taskSnapshot.getMetadata().getReference() != null) {
+                                                Task<Uri> result = taskSnapshot.getStorage().getDownloadUrl();
+                                                result.addOnSuccessListener(uri -> {
+                                                    String imageUrl = uri.toString();
+                                                    Map newImageMap = new HashMap();
+                                                    newImageMap.put("profilepicUrl", imageUrl);
+                                                    ref.updateChildren(newImageMap).addOnCompleteListener(new OnCompleteListener() {
                                                         @Override
-                                                        public void onSuccess(Object o) {
-                                                            if (task.isSuccessful())
-                                                            {
+                                                        public void onComplete(@NonNull Task task) {
+                                                            if (task.isSuccessful()) {
                                                                 Toast.makeText(RegisterActivity.this, "image succesfully added", Toast.LENGTH_SHORT).show();
-                                                            }
-                                                            else
-                                                            {
+                                                            } else {
                                                                 Toast.makeText(RegisterActivity.this, task.getException().toString(), Toast.LENGTH_SHORT).show();
                                                             }
                                                         }
                                                     });
+
+
                                                     finish();
-                                                }
-                                            });
+
+                                                });
+                                            }
                                         }
-                                    }
-                                });
+                                    });
 
-                                Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                                startActivity(intent);
-                                finish();
+                                    Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    startActivity(intent);
+                                    finish();
+                                }
+
                             }
-
-                        } else {
-                            Toast.makeText(RegisterActivity.this, "Error!" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
-                    }
-                });
-            }
+                    });
+                }
             }
         });
+
 
         mLoginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
