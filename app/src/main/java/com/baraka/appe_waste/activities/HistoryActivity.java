@@ -21,7 +21,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 public class HistoryActivity extends AppCompatActivity {
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
-    private CollectionReference notebookref = db.collection("user data");
+    private CollectionReference notebookref = db.collection("Donations");
     public static final String TAG = "TAG";
     private Toolbar toolbar;
     private TextView textViewData;

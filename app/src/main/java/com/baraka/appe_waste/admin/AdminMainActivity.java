@@ -1,4 +1,4 @@
-package com.baraka.appe_waste.activities;
+package com.baraka.appe_waste.admin;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,16 +14,14 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.baraka.appe_waste.R;
-import com.baraka.appe_waste.admin.DataActivity;
+import com.baraka.appe_waste.activities.LoginActivity;
 import com.baraka.appe_waste.electronics.ApplianceActivity;
 import com.baraka.appe_waste.electronics.LaptopActivity;
 import com.baraka.appe_waste.electronics.MobileActivity;
 import com.baraka.appe_waste.electronics.PrinterActivity;
 import com.baraka.appe_waste.electronics.TvsActivity;
 import com.baraka.appe_waste.electronics.WearablesMainActivity;
-import com.bumptech.glide.Glide;
 import com.google.android.material.navigation.NavigationView;
-import com.google.android.material.tabs.TabLayout;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,15 +31,13 @@ import com.google.firebase.database.ValueEventListener;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class AdminMainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawerLayout;
     private androidx.appcompat.widget.Toolbar toolBar;
     private NavigationView navView;
     CardView mobile,wearable,tv,laptop,appliance,printer;
     private CircleImageView nav_profile_image;
-    ViewPager viewPager;
-    TabLayout tabLayout;
-    private TextView fullname,navemail,type;
+    private TextView fullname,navemail;
     private DatabaseReference userRef;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +50,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         laptop=findViewById(R.id.laptop);
         appliance=findViewById(R.id.appliances);
         printer=findViewById(R.id.printers);
-        //tabLayout.setupWithViewPager(viewPager);
         toolBar=findViewById(R.id.toolbar);
         setSupportActionBar(toolBar);
         getSupportActionBar().setTitle("E-Waste Collection App");
         navView=findViewById(R.id.navigationview);
-        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(MainActivity.this,drawerLayout,toolBar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle=new ActionBarDrawerToggle(AdminMainActivity.this,drawerLayout,toolBar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -90,52 +84,52 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
-    mobile.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent=new Intent(MainActivity.this, MobileActivity.class);
-            startActivity(intent);
-        }
-    });
         mobile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,MobileActivity.class);
+                Intent intent=new Intent(AdminMainActivity.this, MobileActivity.class);
+                startActivity(intent);
+            }
+        });
+        mobile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(AdminMainActivity.this,MobileActivity.class);
                 startActivity(intent);
             }
         });
         wearable.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, WearablesMainActivity.class);
+                Intent intent=new Intent(AdminMainActivity.this, WearablesMainActivity.class);
                 startActivity(intent);
             }
         });
         tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, TvsActivity.class);
+                Intent intent=new Intent(AdminMainActivity.this, TvsActivity.class);
                 startActivity(intent);
             }
         });
         printer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, PrinterActivity.class);
+                Intent intent=new Intent(AdminMainActivity.this, PrinterActivity.class);
                 startActivity(intent);
             }
         });
         appliance.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, ApplianceActivity.class);
+                Intent intent=new Intent(AdminMainActivity.this, ApplianceActivity.class);
                 startActivity(intent);
             }
         });
         laptop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, LaptopActivity.class);
+                Intent intent=new Intent(AdminMainActivity.this, LaptopActivity.class);
                 startActivity(intent);
             }
         });
@@ -145,36 +139,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId())
         {
-            case R.id.profile:
-                Intent intent=new Intent(MainActivity.this,ProfileActivity.class);
-                startActivity(intent);
-                break;
+
             case R.id.donate:
-                Intent intent2=new Intent(MainActivity.this,DonateActivity.class);
+                Intent intent2=new Intent(AdminMainActivity.this, Receive.class);
                 startActivity(intent2);
-                break;
-            case R.id.collection:
-                Intent intent3=new Intent(MainActivity.this,EMapsActivity.class);
-                startActivity(intent3);
-                break;
-            case R.id.history:
-                Intent intent4=new Intent(MainActivity.this,HistoryActivity.class);
-                startActivity(intent4);
-                break;
-            case R.id.about:
-                Intent intent5=new Intent(MainActivity.this,AboutActivity.class);
-                startActivity(intent5);
-                break;
-            case R.id.contact:
-                Intent intent6=new Intent(MainActivity.this,ContactActivity.class);
-                startActivity(intent6);
                 break;
             case R.id.logout:
                 FirebaseAuth.getInstance().signOut();
-                Intent intent8 = new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent8 = new Intent(AdminMainActivity.this, LoginActivity.class);
                 intent8.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent8);
-                break;
+                //break;
             case R.id.share:
                 Intent shareIntent =   new Intent(android.content.Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
@@ -183,6 +158,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 shareIntent.putExtra(android.content.Intent.EXTRA_TEXT,app_url);
                 startActivity(Intent.createChooser(shareIntent, "Share via"));
                 break;
+            case R.id.Donations:
+                Intent intent9 = new Intent(AdminMainActivity.this, DataActivity.class);
+                intent9.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent9);
 
 
         }

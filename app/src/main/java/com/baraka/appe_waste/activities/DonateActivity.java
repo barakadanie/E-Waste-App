@@ -146,7 +146,7 @@ public class DonateActivity extends AppCompatActivity implements OnMapReadyCallb
 
                 userID = fAuth.getCurrentUser().getUid();
                 //DocumentReference documentReference = fStore.collection("donate").document(userID);
-                CollectionReference collectionReference = fStore.collection("user data");
+                CollectionReference collectionReference = fStore.collection("Donations");
 
                 GeoPoint geoPoint = new GeoPoint(location.getLatitude(),location.getLongitude());
                 Map<String,Object> user = new HashMap<>();

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/home"
+        android:title="Home"/>
+    <item
+        android:id="@+id/pickup"
+        android:icon="@drawable/donate"
+        android:title="Add Pickup Point"/>
+    <item
+        android:id="@+id/collect"
+        android:icon="@drawable/collect"
+        android:title="Collection Zones"/>
+    <item
+        android:id="@+id/Donations"
+        android:icon="@drawable/history"
+        android:title="Donations"/>
+
+    <item
+        android:id="@+id/about"
+        android:icon="@drawable/about"
+        android:title="About-Us"/>
+
+    <item android:title="actions">
+        <menu>
+        <group android:checkableBehavior="single">
+            <item
+                android:id="@+id/profile"
+                android:icon="@drawable/profile"
+                android:title="Profile"/>
+            <item
+                android:id="@+id/notificaton"
+                android:icon="@drawable/about"
+                android:title="Notifications"/>
+            <item
+                android:id="@+id/help"
+                android:icon="@drawable/ic_baseline_help_outline_24"
+                android:title="Help"/>
+            <item
+                android:id="@+id/logout"
+                android:icon="@drawable/logout"
+                android:title="Logout"/>
+        </group>
+        </menu>
+    </item>
+    <item android:title="Commiunicate">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/contact"
+                    android:icon="@drawable/contact"
+                    android:title="Messages"/>
+            <item
+                android:id="@+id/share"
+                android:icon="@drawable/share"
+                android:title="Share"/>
+            </group>
+        </menu>
+    </item>
+</menu>

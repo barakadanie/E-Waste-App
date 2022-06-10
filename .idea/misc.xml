@@ -16,9 +16,11 @@
         <entry key="..\:/AppEWaste/app/src/main/res/drawable/edit_text_style.xml" value="0.1" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_about.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_admin.xml" value="0.1911231884057971" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_admin_main.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_appliance.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_computers.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_contact.xml" value="0.17074275362318841" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_data.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_donate.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_emaps.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_forgot_password.xml" value="0.1911231884057971" />
@@ -41,6 +43,7 @@
         <entry key="..\:/AppEWaste/app/src/main/res/layout/list_item.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/list_items.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/singlerow.xml" value="0.17074275362318841" />
+        <entry key="..\:/AppEWaste/app/src/main/res/menu/admin_main_menu.xml" value="0.209375" />
         <entry key="..\:/AppEWaste/app/src/main/res/menu/main_menu.xml" value="0.209375" />
       </map>
     </option>

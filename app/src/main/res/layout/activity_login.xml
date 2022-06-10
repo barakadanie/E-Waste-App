@@ -19,14 +19,12 @@
         android:layout_marginRight="10dp"
         android:layout_marginLeft="10dp"
         tools:ignore="UselessParent">
-        <ImageView
-            android:id="@+id/profile"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:background="@drawable/round_background"
-            android:padding="15dp"
-            android:src="@drawable/mainlogo"
-            tools:ignore="ContentDescription" />
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imageView4"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="3dp"
+        android:src="@drawable/mainlogo"/>
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -96,6 +94,13 @@
             android:layout_marginStart="0dp"
             android:layout_marginEnd="15dp"
             />
+        <ProgressBar
+            android:id="@+id/loginProgressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintVertical_bias="0.53" />
         <Button
             android:id="@+id/login"
             android:layout_width="match_parent"

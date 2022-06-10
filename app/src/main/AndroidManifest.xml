@@ -15,7 +15,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppEWaste">
         <activity
-            android:name=".HelpActivity"
+            android:name=".admin.AdminMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".admin.DataActivity"
+            android:exported="false" />
+        <activity
+            android:name=".help.HelpActivity"
             android:exported="false" />
         <activity
             android:name=".activities.ForgotPasswordActivity"
@@ -62,7 +68,7 @@
             android:name=".activities.HistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".activities.Receive"
+            android:name=".admin.Receive"
             android:exported="false" />
         <activity
             android:name=".activities.DonateActivity"
