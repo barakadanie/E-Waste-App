@@ -5,7 +5,7 @@ public class User {
     private String email;
     private String phone;
     private String accType;
-    public User(){
+    public User(String name, String school, String id, String email, String phoneNum){
     }
     public User(String name, String email, String phone, String accType) {
         this.name = name;
