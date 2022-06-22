@@ -14,4 +14,6 @@
     <string name="reg">Don\'t Have an account? Click to Register</string>
     <string name="enter_email">Enter email</string>
     <string name="location_name">Location Name</string>
+    <string name="collection_zones">Collection Zones</string>
+    <string name="electronic_components">Electronic Components</string>
 </resources>

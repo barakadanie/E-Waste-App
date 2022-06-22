@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private DrawerLayout drawerLayout;
     private androidx.appcompat.widget.Toolbar toolBar;
     private NavigationView navView;
-    CardView mobile,wearable,tv,laptop,appliance,printer;
+    CardView sites;
     private CircleImageView nav_profile_image;
     ViewPager viewPager;
     TabLayout tabLayout;
@@ -49,12 +49,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         drawerLayout=findViewById(R.id.drawerlayout);
-        mobile=findViewById(R.id.mobile);
-        wearable=findViewById(R.id.wearables);
-        tv=findViewById(R.id.tvs);
-        laptop=findViewById(R.id.laptop);
-        appliance=findViewById(R.id.appliances);
-        printer=findViewById(R.id.printers);
+
+        sites=findViewById(R.id.site);
         //tabLayout.setupWithViewPager(viewPager);
         toolBar=findViewById(R.id.toolbar);
         setSupportActionBar(toolBar);
@@ -90,52 +86,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             }
         });
-    mobile.setOnClickListener(new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Intent intent=new Intent(MainActivity.this, MobileActivity.class);
-            startActivity(intent);
-        }
-    });
-        mobile.setOnClickListener(new View.OnClickListener() {
+
+
+        sites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this,MobileActivity.class);
-                startActivity(intent);
-            }
-        });
-        wearable.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, WearablesMainActivity.class);
-                startActivity(intent);
-            }
-        });
-        tv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, TvsActivity.class);
-                startActivity(intent);
-            }
-        });
-        printer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, PrinterActivity.class);
-                startActivity(intent);
-            }
-        });
-        appliance.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, ApplianceActivity.class);
-                startActivity(intent);
-            }
-        });
-        laptop.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, LaptopActivity.class);
+                Intent intent=new Intent(MainActivity.this, DirectionsActivity.class);
                 startActivity(intent);
             }
         });

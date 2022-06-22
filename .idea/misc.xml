@@ -21,6 +21,7 @@
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_computers.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_contact.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_data.xml" value="0.1911231884057971" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_directions.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_donate.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_emaps.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_forgot_password.xml" value="0.1911231884057971" />
@@ -38,10 +39,12 @@
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_tvs.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_user_data.xml" value="0.10182370820668693" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/activity_wearables_main.xml" value="0.1911231884057971" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/child_list.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/fragment_my.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/header.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/list_item.xml" value="0.1911231884057971" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/list_items.xml" value="0.1911231884057971" />
+        <entry key="..\:/AppEWaste/app/src/main/res/layout/parent_list.xml" value="0.14412568306010928" />
         <entry key="..\:/AppEWaste/app/src/main/res/layout/singlerow.xml" value="0.17074275362318841" />
         <entry key="..\:/AppEWaste/app/src/main/res/menu/admin_main_menu.xml" value="0.209375" />
         <entry key="..\:/AppEWaste/app/src/main/res/menu/main_menu.xml" value="0.209375" />

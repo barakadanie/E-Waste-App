@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppEWaste">
         <activity
+            android:name=".activities.DirectionsActivity"
+            android:exported="false" />
+        <activity
             android:name=".admin.AdminMainActivity"
             android:exported="false" />
         <activity
